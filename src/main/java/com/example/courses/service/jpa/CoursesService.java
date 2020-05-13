@@ -17,7 +17,7 @@ public class CoursesService implements ICoursesService {
 
 	@Override
 	public List<Course> searchAllCourses() {
-		return repoCursos.findAll();
+		return repoCursos.findAll(); //implementation of method to fetch all courses from ICoursesService
 	}
 
 }
