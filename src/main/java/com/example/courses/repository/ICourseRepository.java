@@ -4,6 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.example.courses.entity.Course;
 
-public interface CourseRepository extends JpaRepository<Course, Integer> {
+public interface ICourseRepository extends JpaRepository<Course, Integer> {
 
 }
