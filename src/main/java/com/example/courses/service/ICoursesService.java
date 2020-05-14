@@ -4,10 +4,14 @@ import java.util.List;
 
 import com.example.courses.entity.Course;
 
+
+
 public interface ICoursesService {
 	//method for fetch all courses
 	List<Course> searchAllCourses();
 	void saveCourse(Course course);
+	Course searchById(int code);
 	void deleteCourse(int code);
+	
 
 }
