@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -29,6 +30,13 @@ public class CoursesController {
 	
 	@PostMapping("/courses") //endpoint for saving a course
 	public Course saveCourseC(@RequestBody Course course) {
+		serviceCourses.saveCourse(course);
+		return course;
+		
+	}
+	
+	@PutMapping("/courses") //endpoint for editing a course
+	public Course modify(@RequestBody Course course) {
 		serviceCourses.saveCourse(course);
 		return course;
 		
