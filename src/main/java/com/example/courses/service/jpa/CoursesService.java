@@ -26,4 +26,10 @@ public class CoursesService implements ICoursesService {
 		
 	}
 
+	@Override
+	public void deleteCourse(int idCourse) {
+		repoCursos.deleteById(idCourse);
+		
+	}
+
 }

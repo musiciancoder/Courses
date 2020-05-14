@@ -3,7 +3,9 @@ package com.example.courses.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -36,9 +38,16 @@ public class CoursesController {
 	}
 	
 	@PutMapping("/courses") //endpoint for editing a course
-	public Course modify(@RequestBody Course course) {
+	public Course modifyC(@RequestBody Course course) {
 		serviceCourses.saveCourse(course);
 		return course;
+		
+	}
+	
+	@DeleteMapping("/courses/{id}") //endpoint for deleting a course
+	public String deleteC(@PathVariable ("id") int idCourse) {
+		serviceCourses.deleteCourse(idCourse);
+		return "Register has been deleted successfully";
 		
 	}
 	
