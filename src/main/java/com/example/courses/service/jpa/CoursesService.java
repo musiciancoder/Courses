@@ -20,4 +20,10 @@ public class CoursesService implements ICoursesService {
 		return repoCursos.findAll(); //implementation of method to fetch all courses from ICoursesService
 	}
 
+	@Override
+	public void saveCourse(Course course) {
+		repoCursos.save(course);
+		
+	}
+
 }
