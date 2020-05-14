@@ -9,5 +9,6 @@ public interface ICoursesService {
 	List<Course> searchAllCourses();
 	void saveCourse(Course course);
 	void deleteCourse(int code);
+	void editCourse(Course course, int code);
 
 }

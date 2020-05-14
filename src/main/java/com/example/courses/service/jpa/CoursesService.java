@@ -1,6 +1,7 @@
 package com.example.courses.service.jpa;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,6 +26,8 @@ public class CoursesService implements ICoursesService {
 		repoCursos.save(course);
 		
 	}
+	
+	
 
 	@Override
 	public void deleteCourse(int code) {
@@ -32,4 +35,16 @@ public class CoursesService implements ICoursesService {
 		
 	}
 
+
+
+	@Override
+	public void editCourse(Course course, int code) {
+			Optional <Course> Id= repoCursos.findById(code);
+			if(Id.isPresent()) {
+				course.setCode(code);
+				repoCursos.save(course);
+			}
+	
+
+}
 }

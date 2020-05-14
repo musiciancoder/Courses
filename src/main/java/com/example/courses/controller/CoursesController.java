@@ -37,10 +37,11 @@ public class CoursesController {
 		
 	}
 	
-	@PutMapping("/courses") //endpoint for editing a course
-	public Course modifyC(@RequestBody Course course) {
-		serviceCourses.saveCourse(course);
-		return course;
+	
+	@PutMapping("/courses/{id}") //endpoint for editing a course
+	public String modifyC(@PathVariable ("id") int code, @RequestBody Course course) {
+		serviceCourses.editCourse(course, code);
+		return "Register has been edited successfully";
 		
 	}
 	
