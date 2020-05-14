@@ -45,8 +45,8 @@ public class CoursesController {
 	}
 	
 	@DeleteMapping("/courses/{id}") //endpoint for deleting a course
-	public String deleteC(@PathVariable ("id") int idCourse) {
-		serviceCourses.deleteCourse(idCourse);
+	public String deleteC(@PathVariable ("id") int code) {
+		serviceCourses.deleteCourse(code);
 		return "Register has been deleted successfully";
 		
 	}

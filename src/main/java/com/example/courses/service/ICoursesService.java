@@ -8,6 +8,6 @@ public interface ICoursesService {
 	//method for fetch all courses
 	List<Course> searchAllCourses();
 	void saveCourse(Course course);
-	void deleteCourse(int idCourse);
+	void deleteCourse(int code);
 
 }
