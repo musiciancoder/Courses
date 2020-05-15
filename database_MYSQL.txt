@@ -1,8 +1,24 @@
 --
--- Table structure for table `Courses`
+-- Table structure for table `Albums`
 --
-CREATE TABLE `Courses` (
-  `code` int(4) NOT NULL AUTO_INCREMENT,
-  `name` varchar(200) NOT NULL,
-  PRIMARY KEY (`code`)
+CREATE TABLE `Albums` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `titulo` varchar(200) NOT NULL,
+  `lanzado` date NOT NULL,
+  `precio` double NOT NULL,
+  `genero` varchar(150) NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB;
+
+
+CREATE TABLE `students` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `rut` varchar(15) NOT NULL,
+  `name` varchar(30) NOT NULL,
+  `lastname` varchar(30) NOT NULL,
+  `age` int(3) NOT NULL,
+  `code` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+	KEY `fk_students_courses1_idx`(`code`),
+     CONSTRAINT `fk_students_courses1` FOREIGN KEY (`code`) REFERENCES `courses` (`code`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
