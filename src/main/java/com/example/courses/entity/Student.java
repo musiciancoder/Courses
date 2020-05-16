@@ -23,7 +23,7 @@ public class Student {
 	//@Transient
 	@OneToOne
 	@JoinColumn(name="code")
-	private Course course; //foreign key
+	private Course course; //foreign key 
 
 	public Integer getId() {
 		return id;
