@@ -1,6 +1,12 @@
 package com.example.courses.entity;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 @Entity
 @Table(name="students")
@@ -14,7 +20,9 @@ public class Student {
 	private String lastname;
 	private Integer age;
 	
-	@Transient
+	//@Transient
+	@OneToOne
+	@JoinColumn(name="code")
 	private Course course; //foreign key
 
 	public Integer getId() {
