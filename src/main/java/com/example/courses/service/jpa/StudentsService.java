@@ -4,13 +4,13 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
+import org.springframework.stereotype.Service;
 
 import com.example.courses.entity.Student;
-
 import com.example.courses.repository.IStudentRepository;
 import com.example.courses.service.IStudentsService;
 
+@Service
 public class StudentsService implements IStudentsService {
 
 	@Autowired
