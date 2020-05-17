@@ -3,6 +3,8 @@ package com.example.courses.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,41 +20,34 @@ import com.example.courses.service.IStudentsService;
 @RestController
 @RequestMapping("/api")
 public class StudentsController {
-	
+
 	@Autowired
 	private IStudentsService serviceStudents;
-	
-	
-	@GetMapping("/students") //endpoint for fetching all students
+
+	@GetMapping("/students") // endpoint for fetching all students
 	public List<Student> searchAllstudentsC() {
+
 		return serviceStudents.searchAllStudents();
 	}
-	
-	
-	@PostMapping("/students") //endpoint for saving a Student
+
+	@PostMapping("/students") // endpoint for saving a Student
 	public Student saveStudentC(@RequestBody Student student) {
 		serviceStudents.saveStudent(student);
 		return student;
-		
 	}
-	
-	
-	@PutMapping("/students/{id}") //endpoint for editing a Student
-	public String modifyC(@PathVariable ("id") int id, @RequestBody Student student) {
+
+	@PutMapping("/students/{id}") // endpoint for editing a Student
+	public String modifyStudentC(@PathVariable("id") Integer id, @RequestBody Student student) {
 		serviceStudents.editStudent(student, id);
 		return "Register has been edited successfully";
-		
+
 	}
-	
-	@DeleteMapping("/students/{id}") //endpoint for deleting a Student
-	public String deleteC(@PathVariable ("id") int id) {
+
+	@DeleteMapping("/students/{id}") // endpoint for deleting a Student
+	public String deleteC(@PathVariable("id") int id) {
 		serviceStudents.deleteStudent(id);
 		return "Register has been deleted successfully";
-		
+
 	}
-	
-	
+
 }
-
-
-

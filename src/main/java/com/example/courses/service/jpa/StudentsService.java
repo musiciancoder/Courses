@@ -17,16 +17,12 @@ public class StudentsService implements IStudentsService {
 	private IStudentRepository repoEstudiantes;
 
 	
-	
 	@Override
 	public List<Student> searchAllStudents() {
 		return repoEstudiantes.findAll();
 
 	}
 	
-	
-	
-
 	@Override
 	public void saveStudent(Student student) {
 		repoEstudiantes.save(student);
@@ -40,7 +36,7 @@ public class StudentsService implements IStudentsService {
 	}
 
 	@Override
-	public void editStudent(Student student, int id) {
+	public void editStudent(Student student, Integer id) {
 		Optional<Student> Id = repoEstudiantes.findById(id);
 		if (Id.isPresent()) {
 			student.setId(id);

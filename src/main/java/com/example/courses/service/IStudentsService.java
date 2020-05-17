@@ -10,6 +10,6 @@ public interface IStudentsService {
 	List<Student> searchAllStudents();
 	void saveStudent(Student student);
 	void deleteStudent(int id);
-	void editStudent(Student student, int id);
+	void editStudent(Student student, Integer id);
 	
 }
