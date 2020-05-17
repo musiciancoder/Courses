@@ -3,6 +3,7 @@ package com.example.courses.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -24,7 +25,13 @@ public class StudentsController {
 	@Autowired
 	private IStudentsService serviceStudents;
 
-	@GetMapping("/students") // endpoint for fetching all students
+	@GetMapping("/students") // endpoint for fetching all students paginate
+	public Page<Student> searchAllstudentsByPageC() {
+		return serviceStudents.searchAllOfTheStudentsByPage();
+		
+	}
+	
+	@GetMapping("/students/all") // endpoint for fetching all students
 	public List<Student> searchAllstudentsC() {
 
 		return serviceStudents.searchAllStudents();

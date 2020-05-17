@@ -4,6 +4,9 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.example.courses.entity.Student;
@@ -16,6 +19,20 @@ public class StudentsService implements IStudentsService {
 	@Autowired
 	private IStudentRepository repoEstudiantes;
 
+	
+	@Override
+	public Page<Student> searchAllOfTheStudentsByPage() {
+		Page<Student>page = repoEstudiantes.findAll(PageRequest.of(0,5,Sort.by("lastname")));
+		System.out.println("Total rows: " + page.getTotalElements());
+		System.out.println("Total pages: " + page.getTotalPages());
+		for (Student s : page) {
+			System.out.println(s.getId() + " " + s.getLastname());
+		}
+		return page;
+	}
+	
+	
+	
 	
 	@Override
 	public List<Student> searchAllStudents() {
@@ -44,6 +61,8 @@ public class StudentsService implements IStudentsService {
 		}
 
 	}
+
+
 
 
 

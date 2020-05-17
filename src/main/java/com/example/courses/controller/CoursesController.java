@@ -3,6 +3,8 @@ package com.example.courses.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.courses.entity.Course;
+import com.example.courses.entity.Student;
 import com.example.courses.service.ICoursesService;
 
 @RestController
@@ -24,7 +27,10 @@ public class CoursesController {
 	private ICoursesService serviceCourses;
 	
 	
-	@GetMapping("/courses") //endpoint for fetching all courses
+
+	
+	
+	@GetMapping("/courses/all") //endpoint for fetching all courses
 	public List<Course> searchAllCoursesC() {
 		return serviceCourses.searchAllCourses();
 	}
