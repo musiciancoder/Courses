@@ -27,7 +27,7 @@ public class CoursesApplication implements CommandLineRunner{
 	private void searchAllOfTheStudents() {
 			List<Student>lista = repoEstudiante.findAll();
 			for(Student v: lista) {
-				System.out.println(v.getId() + " " +v.getName() + v.getCourse().getCode());;
+				System.out.println("id: " + v.getId() + ", name: " +v.getName() + ", course code: " + v.getCourse().getCode());;
 			}
 	}
 
