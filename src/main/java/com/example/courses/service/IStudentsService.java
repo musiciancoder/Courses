@@ -14,5 +14,6 @@ public interface IStudentsService {
 	void deleteStudent(int id);
 	void editStudent(Student student, Integer id);
     Page <Student> searchAllOfTheStudentsByPage();
+    Student searchStudentById(int id);
 	
 }

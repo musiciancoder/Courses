@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -36,6 +38,17 @@ public class StudentsController {
 
 		return serviceStudents.searchAllStudents();
 	}
+	
+	
+	@GetMapping("/students/{id}")  // endpoint for fetching a student by id
+	public ResponseEntity<Student> searchStudentByIdC(@PathVariable("id") Integer id) { 
+	    Student student = serviceStudents.searchStudentById(id);
+	    if (student != null) {
+	        return new ResponseEntity<Student>(student, HttpStatus.OK);
+	    }
+	    return new ResponseEntity<>(HttpStatus.NOT_FOUND); //Status 404
+	}
+	
 
 	@PostMapping("/students") // endpoint for saving a Student
 	public Student saveStudentC(@RequestBody Student student) {

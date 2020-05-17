@@ -32,12 +32,22 @@ public class StudentsService implements IStudentsService {
 	}
 	
 	
-	
-	
 	@Override
 	public List<Student> searchAllStudents() {
 		return repoEstudiantes.findAll();
 
+	}
+	
+	
+	@Override
+	public Student searchStudentById(int id) {
+		Optional<Student> optional  = repoEstudiantes.findById(id);
+		if (optional.isPresent()) {
+			return	optional.get();
+				
+			}
+		return null;
+		
 	}
 	
 	@Override
@@ -67,6 +77,13 @@ public class StudentsService implements IStudentsService {
 
 
 
-
-
 }
+
+
+
+
+
+
+
+
+
