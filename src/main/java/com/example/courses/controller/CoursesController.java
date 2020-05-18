@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,13 +29,29 @@ public class CoursesController {
 	private ICoursesService serviceCourses;
 	
 	
-
+	@GetMapping("/courses") // endpoint for fetching all courses paginate
+	public Page<Course> searchAllCoursesByPageC() {
+		return serviceCourses.searchAllOfTheCoursesByPage();
+		
+	}
 	
 	
 	@GetMapping("/courses/all") //endpoint for fetching all courses
 	public List<Course> searchAllCoursesC() {
 		return serviceCourses.searchAllCourses();
 	}
+	
+	
+	
+	@GetMapping("/courses/{id}")  // endpoint for fetching a course by id
+	public ResponseEntity<Course> searchCourseByIdC(@PathVariable("id") Integer id) { 
+	    Course course = serviceCourses.searchCourseById(id);
+	    if (course != null) {
+	        return new ResponseEntity<Course>(course, HttpStatus.OK);
+	    }
+	    return new ResponseEntity<>(HttpStatus.NOT_FOUND); //Status 404
+	}
+	
 	
 	
 	@PostMapping("/courses") //endpoint for saving a course

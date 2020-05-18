@@ -4,9 +4,13 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.example.courses.entity.Course;
+import com.example.courses.entity.Student;
 import com.example.courses.repository.ICourseRepository;
 import com.example.courses.service.ICoursesService;
 
@@ -18,8 +22,36 @@ public class CoursesService implements ICoursesService {
 
 	@Override
 	public List<Course> searchAllCourses() {
-		return repoCursos.findAll(); //implementation of method to fetch all courses from ICoursesService
+		return repoCursos.findAll(); 
 	}
+	
+	
+	@Override
+	public Page<Course> searchAllOfTheCoursesByPage() {
+		Page<Course>page = repoCursos.findAll(PageRequest.of(0,2,Sort.by("name")));
+		System.out.println("Total rows: " + page.getTotalElements());
+		System.out.println("Total pages: " + page.getTotalPages());
+		for (Course s : page) {
+			System.out.println(s.getCode() + " " + s.getName());
+		}
+		return page;
+	}
+
+
+
+
+
+	@Override
+	public Course searchCourseById(int id) {
+		Optional<Course> optional  = repoCursos.findById(id);
+		if (optional.isPresent()) {
+			return	optional.get();
+				
+			}
+		return null;
+		
+	}
+	
 
 	@Override
 	public void saveCourse(Course course) {
@@ -47,4 +79,10 @@ public class CoursesService implements ICoursesService {
 	
 
 }
+
+
+
+
+
+
 }
