@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class HelloWorldController {
+public class HelloWorldController { //clase de prueba controlador
 
 	@RequestMapping("hello")
 	public String helloWorld(@RequestParam(value="name", defaultValue="World") String name) {
