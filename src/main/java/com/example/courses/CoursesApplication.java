@@ -17,6 +17,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 import com.example.courses.entity.Student;
 import com.example.courses.repository.IStudentRepository;
+import com.example.courses.security.JWTAuthorizationFilter;
 //import com.example.courses.security.JWTAuthorizationFilter;
 
 @SpringBootApplication
@@ -38,8 +39,8 @@ public class CoursesApplication implements CommandLineRunner {
 		@Override
 		protected void configure(HttpSecurity http) throws Exception {
 			http.csrf().disable()
-					//.addFilterAfter(new JWTAuthorizationFilter(), UsernamePasswordAuthenticationFilter.class)
-					.authorizeRequests().antMatchers(HttpMethod.POST, "/user").permitAll().anyRequest().authenticated();
+					.addFilterAfter(new JWTAuthorizationFilter(), UsernamePasswordAuthenticationFilter.class)
+					.authorizeRequests().antMatchers(HttpMethod.GET, "/token").permitAll().anyRequest().authenticated();
 		}
 	}
 
