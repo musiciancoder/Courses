@@ -21,7 +21,7 @@ import com.example.courses.entity.Student;
 import com.example.courses.service.ICoursesService;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/rest")
 public class CoursesController {
 
 	
