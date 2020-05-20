@@ -1,23 +1,26 @@
 package com.example.courses.model;
 
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
+import java.lang.*;
 
 import java.util.Collection;
 import java.util.List;
 
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
 public class JwtUserDetails implements UserDetails {
 
-    private String userName;
+
+   // private String userName;
     private String token;
-    private Long id;
+ //   private Long id;
     private Collection<? extends GrantedAuthority> authorities;
 
 
     public JwtUserDetails(String userName, long id, String token, List<GrantedAuthority> grantedAuthorities) {
 
-        this.userName = userName;
-        this.id = id;
+  //      this.userName = userName;
+   //     this.id = id;
         this.token= token;
         this.authorities = grantedAuthorities;
     }
@@ -27,15 +30,13 @@ public class JwtUserDetails implements UserDetails {
         return authorities;
     }
 
-    @Override
-    public String getPassword() {
-        return null;
-    }
+	
+	  @Override public String getPassword() { return null; }
+	 
 
-    @Override
-    public String getUsername() {
-        return userName;
-    }
+	
+	  @Override public String getUsername() { return "userName"; }
+	 
 
     @Override
     public boolean isAccountNonExpired() {
@@ -58,17 +59,21 @@ public class JwtUserDetails implements UserDetails {
     }
 
 
-    public String getUserName() {
-        return userName;
-    }
+	
+	  public String getUserName() { 
+		  return "userName"; 
+		  }
+	 
 
     public String getToken() {
         return token;
     }
 
 
-    public Long getId() {
-        return id;
-    }
+	
+	 public Long getId() { 
+		 return (long) (10*Math.random()); 
+		 }
+	 
 
 }

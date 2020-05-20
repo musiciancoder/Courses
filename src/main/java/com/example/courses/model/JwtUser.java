@@ -2,19 +2,21 @@ package com.example.courses.model;
 
 public class JwtUser { //for testing purposes only
     private String userName;
-    private long id;
+    private long id ;
     private String role;
 
-    public void setUserName(String userName) { 
-        this.userName = userName;
+    //User properties were all set to constant values, so that there is no username, id or role JSON requests on the body
+    
+    public void setUserName() { 
+        this.userName = "userName";
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setId() {
+        this.id = (long) (10*Math.random());
     }
 
-    public void setRole(String role) {
-        this.role = role;
+    public void setRole() {
+        this.role = "role";
     }
 
     public String getUserName() {

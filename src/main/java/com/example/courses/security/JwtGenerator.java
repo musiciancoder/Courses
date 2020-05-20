@@ -7,7 +7,7 @@ import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.stereotype.Component;
 
 @Component
-public class JwtGenerator {
+public class JwtGenerator { //Authentication class
 
 
     public String generate(JwtUser jwtUser) {

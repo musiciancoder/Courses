@@ -20,7 +20,7 @@ public class TokenController {
     }
 
     @PostMapping
-    public String generate(@RequestBody final JwtUser jwtUser) {
+    public String generate(final JwtUser jwtUser) {
 
         return jwtGenerator.generate(jwtUser);
 

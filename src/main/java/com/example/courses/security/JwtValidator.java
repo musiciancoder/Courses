@@ -21,10 +21,16 @@ public class JwtValidator { //Authorization class
                     .getBody();
 
             jwtUser = new JwtUser();
+            jwtUser.setUserName(); 
+            jwtUser.setId(); 
+            jwtUser.setRole();
 
-            jwtUser.setUserName(body.getSubject());
-            jwtUser.setId(Long.parseLong((String) body.get("userId")));
-            jwtUser.setRole((String) body.get("role"));
+			/*
+			 * jwtUser.setUserName(body.getSubject()); jwtUser.setId(Long.parseLong((String)
+			 * body.get("userId"))); jwtUser.setRole((String) body.get("role"));
+			 */
+            
+            
         }
         catch (Exception e) {
             System.out.println(e);
