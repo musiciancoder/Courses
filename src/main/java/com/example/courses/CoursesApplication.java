@@ -23,7 +23,7 @@ public class CoursesApplication implements CommandLineRunner{
 	}
 	
 	public void run(String... args) throws Exception{
-		//These are running tests only
+		//These are running tests only for methods below
 		//searchAllOfTheStudents(); 
 		//searchAllOfTheStudentsByPage();
 	}

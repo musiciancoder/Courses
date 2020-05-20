@@ -8,7 +8,7 @@ import java.util.List;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-public class JwtUserDetails implements UserDetails {
+public class JwtUserDetails implements UserDetails {  //for code flow protocol purposes only
 
 
    // private String userName;

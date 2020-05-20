@@ -10,8 +10,8 @@ import com.example.courses.model.JwtUser;
 import com.example.courses.security.JwtGenerator;
 
 @RestController
-@RequestMapping("/token")
-public class TokenController {
+@RequestMapping("/token") //endpoint for generating token
+public class TokenController { 
 
 
     private JwtGenerator jwtGenerator;

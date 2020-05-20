@@ -25,7 +25,7 @@ public class JwtAuthenticationTokenFilter extends AbstractAuthenticationProcessi
         String header = httpServletRequest.getHeader("Authorization");
 
 
-        if (header == null || !header.startsWith("Token ")) {
+        if (header == null || !header.startsWith("Token ")) { // Security feature. Do not forget to add word "Token" before copy/past token into the Headers Authorization for testing 
             throw new RuntimeException("JWT Token is missing");
         }
 

@@ -21,7 +21,7 @@ import com.example.courses.entity.Student;
 import com.example.courses.service.IStudentsService;
 
 @RestController
-@RequestMapping("/rest")
+@RequestMapping("/rest") // do not forget to add "rest" to each URL as part of all endpoints. Example: to execute method searchAllstudentsC() one must write down: http://localhost:8080/rest/students/all 
 public class StudentsController {
 
 	@Autowired

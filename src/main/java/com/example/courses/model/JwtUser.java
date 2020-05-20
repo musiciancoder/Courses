@@ -1,6 +1,6 @@
 package com.example.courses.model;
 
-public class JwtUser { //for testing purposes only
+public class JwtUser { //for code flow protocol purposes only
     private String userName;
     private long id ;
     private String role;
