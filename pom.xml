@@ -10,9 +10,9 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>courses</artifactId>
+	<artifactId>spring-gc</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>courses</name>
+	<name>spring-gc</name>
 	<description>List of courses and students</description>
 
 	<properties>
@@ -71,6 +71,11 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>com.google.cloud.tools</groupId>
+				<artifactId>appengine-maven-plugin</artifactId>
+				<version>1.3.1</version>
 			</plugin>
 		</plugins>
 	</build>

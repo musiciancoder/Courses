@@ -13,7 +13,7 @@ import com.example.courses.entity.Student;
 import com.example.courses.repository.IStudentRepository;
 
 @SpringBootApplication
-public class CoursesApplication implements CommandLineRunner{ 
+public class CoursesApplication implements CommandLineRunner { 
 
 	@Autowired
 	private IStudentRepository repoEstudiante;
