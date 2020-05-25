@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.courses.entity.Course;
 import com.example.courses.entity.Student;
 import com.example.courses.service.IStudentsService;
 
@@ -55,19 +56,37 @@ public class StudentsController {
 		serviceStudents.saveStudent(student);
 		return student;
 	}
+	
+	@PutMapping("/students/{id}")  // endpoint for editing a student by id
+	public ResponseEntity<Student> modifyStudentC(@PathVariable("id") int id, @RequestBody Student studentToEdit){
+		 Student student = serviceStudents.editStudent(studentToEdit, id);
+		 if (student != null) {
+		        return new ResponseEntity<Student>(student, HttpStatus.OK);
+		    }
+		    return new ResponseEntity<>(HttpStatus.NOT_FOUND); //Status 404
+		}
+		 
+	@DeleteMapping("/students/{id}") //endpoint for deleting a student
+	public ResponseEntity<Student>deleteStudentC(@PathVariable ("id") int id) {
+		Student student = serviceStudents.deleteStudent(id);
+		 if (student != null) {
+		        return new ResponseEntity<Student>(student, HttpStatus.OK);
+		    }
+		    return new ResponseEntity<>(HttpStatus.NOT_FOUND); //Status 404
+	}
 
-	@PutMapping("/students/{id}") // endpoint for editing a Student
+	/*@PutMapping("/students/{id}") // endpoint for editing a Student
 	public String modifyStudentC(@PathVariable("id") Integer id, @RequestBody Student student) {
 		serviceStudents.editStudent(student, id);
 		return "Register has been edited successfully";
 
-	}
+	}*/
 
-	@DeleteMapping("/students/{id}") // endpoint for deleting a Student
+	/*@DeleteMapping("/students/{id}") // endpoint for deleting a Student
 	public String deleteC(@PathVariable("id") int id) {
 		serviceStudents.deleteStudent(id);
 		return "Register has been deleted successfully";
 
-	}
+	}*/
 
 }

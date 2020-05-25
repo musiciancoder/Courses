@@ -9,6 +9,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import com.example.courses.entity.Course;
 import com.example.courses.entity.Student;
 import com.example.courses.repository.IStudentRepository;
 import com.example.courses.service.IStudentsService;
@@ -56,7 +57,7 @@ public class StudentsService implements IStudentsService {
 
 	}
 
-	@Override
+	/*@Override
 	public void deleteStudent(int id) {
 		repoEstudiantes.deleteById(id);
 
@@ -68,7 +69,35 @@ public class StudentsService implements IStudentsService {
 		if (Id.isPresent()) {
 			student.setId(id);
 			repoEstudiantes.save(student);
+		}*/
+	
+	@Override
+	public Student deleteStudent(int code) {
+		Optional <Student> Id= repoEstudiantes.findById(code);
+		if(Id.isPresent()) {
+			Student curso = Id.get();
+			repoEstudiantes.deleteById(code);
+			return curso;
 		}
+		return null;
+	}
+
+
+
+
+	@Override
+	public Student editStudent (Student student, int id) {
+			Optional <Student> Id= repoEstudiantes.findById(id);
+			if(Id.isPresent()) {
+				student.setId(id);
+				repoEstudiantes.save(student);
+				Student curso = Id.get();
+				return curso;
+			}
+			return null;
+	
+
+}
 
 	}
 
@@ -77,7 +106,7 @@ public class StudentsService implements IStudentsService {
 
 
 
-}
+
 
 
 

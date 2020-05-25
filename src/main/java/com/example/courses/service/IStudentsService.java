@@ -11,9 +11,10 @@ import com.example.courses.entity.Student;
 public interface IStudentsService {
 	List<Student> searchAllStudents();
 	void saveStudent(Student student);
-	void deleteStudent(int id);
-	void editStudent(Student student, Integer id);
+	Student deleteStudent(int id);
+	
     Page <Student> searchAllOfTheStudentsByPage();
     Student searchStudentById(int id);
+	Student editStudent(Student student, int code);
 	
 }
