@@ -75,21 +75,29 @@ public class CoursesService implements ICoursesService {
 	
 
 	@Override
-	public void deleteCourse(int code) {
-		repoCursos.deleteById(code);
-		
+	public Course deleteCourse(int code) {
+		Optional <Course> Id= repoCursos.findById(code);
+		if(Id.isPresent()) {
+			Course curso = Id.get();
+			repoCursos.deleteById(code);
+			return curso;
+		}
+		return null;
 	}
 
 
 
 
 	@Override
-	public void editCourse(Course course, int code) {
+	public Course editCourse(Course course, int code) {
 			Optional <Course> Id= repoCursos.findById(code);
 			if(Id.isPresent()) {
 				course.setCode(code);
 				repoCursos.save(course);
+				Course curso = Id.get();
+				return curso;
 			}
+			return null;
 	
 
 }

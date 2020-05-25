@@ -41,7 +41,15 @@ public class CoursesController {
 		return serviceCourses.searchAllCourses();
 	}
 	
+
+
 	
+	@PostMapping("/courses") //endpoint for saving a course
+	public Course saveCourseC(@RequestBody Course course) {
+		serviceCourses.saveCourse(course);
+		return course;
+		
+	}
 	
 	@GetMapping("/courses/{id}")  // endpoint for fetching a course by id
 	public ResponseEntity<Course> searchCourseByIdC(@PathVariable("id") Integer id) { 
@@ -52,30 +60,39 @@ public class CoursesController {
 	    return new ResponseEntity<>(HttpStatus.NOT_FOUND); //Status 404
 	}
 	
-	
-	
-	@PostMapping("/courses") //endpoint for saving a course
-	public Course saveCourseC(@RequestBody Course course) {
-		serviceCourses.saveCourse(course);
-		return course;
-		
+	@PutMapping("/courses/{id}")  // endpoint for editing a course by id
+	public ResponseEntity<Course> modifyC(@PathVariable("id") int code, @RequestBody Course courseToEdit){
+		 Course course = serviceCourses.editCourse(courseToEdit, code);
+		 if (course != null) {
+		        return new ResponseEntity<Course>(course, HttpStatus.OK);
+		    }
+		    return new ResponseEntity<>(HttpStatus.NOT_FOUND); //Status 404
+		}
+		 
+	@DeleteMapping("/courses/{id}") //endpoint for deleting a course
+	public ResponseEntity<Course>deleteC(@PathVariable ("id") int code) {
+		Course course = serviceCourses.deleteCourse(code);
+		 if (course != null) {
+		        return new ResponseEntity<Course>(course, HttpStatus.OK);
+		    }
+		    return new ResponseEntity<>(HttpStatus.NOT_FOUND); //Status 404
 	}
+
 	
-	
-	@PutMapping("/courses/{id}") //endpoint for editing a course
+	/*@PutMapping("/courses/{id}") //endpoint for editing a course
 	public String modifyC(@PathVariable ("id") int code, @RequestBody Course course) {
 		
 		serviceCourses.editCourse(course, code);
 		return "Register has been edited successfully";
 		
-	}
+	}*/
 	
-	@DeleteMapping("/courses/{id}") //endpoint for deleting a course
+	/*@DeleteMapping("/courses/{id}") //endpoint for deleting a course
 	public String deleteC(@PathVariable ("id") int code) {
 		serviceCourses.deleteCourse(code);
 		return "Register has been deleted successfully";
 		
-	}
+	}*/
 	
 	
 }

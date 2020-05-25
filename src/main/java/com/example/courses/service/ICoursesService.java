@@ -13,9 +13,9 @@ public interface ICoursesService {
 	List<Course> searchAllCourses();
 	void saveCourse(Course course);
 	Course searchById(int code);
-	void deleteCourse(int code);
+	Course deleteCourse(int code);
 
-	void editCourse(Course course, int code);
+	Course editCourse(Course course, int code);
 	Page <Course> searchAllOfTheCoursesByPage();
 	Course searchCourseById(int id);
 
