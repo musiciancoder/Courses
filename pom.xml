@@ -60,6 +60,11 @@
 			<artifactId>spring-cloud-gcp-starter-sql-mysql</artifactId>
 			<version>RELEASE</version>
 		</dependency>
+		<dependency>
+	  <groupId>com.google.api-client</groupId>
+	  <artifactId>google-api-client</artifactId>
+	  <version>RELEASE</version>
+	</dependency>
 
 
 		<!-- Spring Security -->
