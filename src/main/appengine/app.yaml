@@ -1,22 +1,12 @@
-runtime: java
-env: standard
-runtime_config:
-  jdk: openjdk8
-handlers:
-- url: /.*
-  script: this field is required, but ignored
-  manual_scaling:
-  instances: 1
-  spring:
-  datasource:
-    driverClassName: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/cursosestudiantes
-    username: segundousuario
-    password: leke2020
-  cloud:
-    gcp:
-      sql:
-        enabled: true
-        database-name: cursosestudiantes
-        instance-connection-name: coursesstudents
+spring:
+application:
+name: Courses
+datasource:
+driverClassName: com.mysql.cj.jdbc.Driver
+url: "jdbcmysql://35.245.190.178/infra-mix-278615:us-east4:coursesstudents?useSSL=false"
+password: segundousuario
+username: leke2020
+
+
+
     
