@@ -10,8 +10,8 @@ handlers:
   spring:
   datasource:
     driverClassName: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/coursesstudents
+    url: jdbc:mysql://localhost:3306/cursosestudiantes
     username: segundousuario
     password: leke2020
-    database-name: cursosestudiantes
+ 
     
