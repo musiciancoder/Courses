@@ -13,5 +13,10 @@ handlers:
     url: jdbc:mysql://localhost:3306/cursosestudiantes
     username: segundousuario
     password: leke2020
- 
+  cloud:
+    gcp:
+      sql:
+        enabled: true
+        database-name: cursosestudiantes
+        instance-connection-name: coursesstudents
     
