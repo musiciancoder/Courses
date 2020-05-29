@@ -11,5 +11,7 @@ handlers:
   datasource:
     driverClassName: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/coursesstudents
-    username: user1
-    password: pass
+    username: segundousuario
+    password: leke2020
+    database-name: cursosestudiantes
+    
