@@ -1,11 +1,14 @@
-spring:
-application:
-name: Courses
-datasource:
-driverClassName: com.mysql.cj.jdbc.Driver
-url: "jdbcmysql://35.245.190.178/infra-mix-278615:us-east4:coursesstudents?useSSL=false"
-password: segundousuario
-username: leke2020
+runtime: java
+env: flex
+runtime_config:
+  jdk: openjdk8
+env_variables:
+  SPRING_PROFILES_ACTIVE: "gcp,mysql"
+handlers:
+- url: /.*
+  script: this field is required, but ignored
+manual_scaling: 
+  instances: 1
 
 
 
