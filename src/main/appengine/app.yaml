@@ -7,3 +7,9 @@ handlers:
   script: this field is required, but ignored
   manual_scaling:
   instances: 1
+  spring:
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/coursesstudents
+    username: user1
+    password: pass
