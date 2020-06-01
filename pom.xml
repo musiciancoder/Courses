@@ -8,12 +8,14 @@
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.2.7.RELEASE</version>
 		<relativePath /> <!-- lookup parent from repository -->
+		
 	</parent>
 	<groupId>com.example</groupId>
 	<artifactId>spring-gc</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>spring-gc</name>
 	<description>List of courses and students</description>
+	
 
 	<properties>
 		<java.version>1.8</java.version>
@@ -61,6 +63,12 @@
 			<artifactId>jjwt</artifactId>
 			<version>0.9.1</version>
 		</dependency>
+		
+	<dependency>
+	<groupId>org.springframework.boot</groupId>
+	<artifactId>spring-boot-starter-tomcat</artifactId>
+	<scope>provided</scope>
+	</dependency>	
 
 
 
@@ -72,13 +80,8 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
-			<plugin>
-				<groupId>com.google.cloud.tools</groupId>
-				<artifactId>appengine-maven-plugin</artifactId>
-				<version>1.3.1</version>
-			</plugin>
 			
-			
+
 			
 		</plugins>
 	</build>

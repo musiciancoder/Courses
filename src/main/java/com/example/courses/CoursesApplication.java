@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 
@@ -13,13 +15,18 @@ import com.example.courses.entity.Student;
 import com.example.courses.repository.IStudentRepository;
 
 @SpringBootApplication
-public class CoursesApplication implements CommandLineRunner { 
+public class CoursesApplication extends SpringBootServletInitializer{ 
 
 	@Autowired
 	private IStudentRepository repoEstudiante;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(CoursesApplication.class, args);
+	}
+	
+	@Override
+	protected SpringApplicationBuilder configure (SpringApplicationBuilder builder) {
+		return builder.sources(CoursesApplication.class);
 	}
 	
 	public void run(String... args) throws Exception{

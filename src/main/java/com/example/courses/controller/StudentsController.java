@@ -57,7 +57,7 @@ public class StudentsController {
 		return student;
 	}
 	
-	@PutMapping("/students/{id}")  // endpoint for editing a student by id
+	@PutMapping("/students/{id}")  // endpoint for editing a student by id 
 	public ResponseEntity<Student> modifyStudentC(@PathVariable("id") int id, @RequestBody Student studentToEdit){
 		 Student student = serviceStudents.editStudent(studentToEdit, id);
 		 if (student != null) {
@@ -66,7 +66,7 @@ public class StudentsController {
 		    return new ResponseEntity<>(HttpStatus.NOT_FOUND); //Status 404
 		}
 		 
-	@DeleteMapping("/students/{id}") //endpoint for deleting a student
+	@DeleteMapping("/students/{id}") //endpoint for deleting a student 
 	public ResponseEntity<Student>deleteStudentC(@PathVariable ("id") int id) {
 		Student student = serviceStudents.deleteStudent(id);
 		 if (student != null) {
