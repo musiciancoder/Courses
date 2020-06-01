@@ -13,8 +13,9 @@
 	<groupId>com.example</groupId>
 	<artifactId>spring-gc</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>spring-gc</name>
+	<name>courses</name>
 	<description>List of courses and students</description>
+	<packaging>war</packaging>
 	
 
 	<properties>
